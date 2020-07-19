@@ -6,7 +6,7 @@
 
 ## 패키지 버전 앞의 `^` 는 뭐지?
 
-![package.json dependencies screetshot](/Users/woowahan30/Documents/deep_dive/images/image-20200719231330726.png)
+![package.json dependencies screetshot](./images/image-20200719231330726.png)
 
 NodeJS 로 작업을 하면서 `npm install [패키지명]` 으로 새로운 패키지를 설치하면 설치 옵션에 따라 `package.json` 의 *dependencies* 나 *devDependencies* 에 패키지명과 버전 정보가 추가된다. 
 
@@ -16,7 +16,7 @@ NodeJS 로 작업을 하면서 `npm install [패키지명]` 으로 새로운 패
 
 
 
-![semantic versioning](/Users/woowahan30/Documents/deep_dive/images/image-20200719231531573.png)출처: [GeeksForGeeks](https://www.geeksforgeeks.org/introduction-semantic-versioning/) 
+![semantic versioning](./images/image-20200719231531573.png)출처: [GeeksForGeeks](https://www.geeksforgeeks.org/introduction-semantic-versioning/) 
 
 
 
@@ -37,28 +37,20 @@ NodeJS 로 작업을 하면서 `npm install [패키지명]` 으로 새로운 패
 dependencies 와 devDependencies 에서 버전을 표기할 때  `^` , `~` 를 함께 사용하면 `npm install` 을 통해 패키지를 설치할 때에 수용 가능한 버전의 폭을 넓혀준다. `^` 는 해당 버전보다 최신의 minor version, patch version 을 모두 허용하고, `~` 는 해당 버전보다 최신의 patch version 을 허용한다. `npm install` 은 이렇게 제공되는 정보에 따라 허용되는 버전 중에서 가장 최신 버전을 설치한다.
 
 - `dependencies : { "express" : "*"}`: 모든 버전 허용
-
-
-
+---
 - `dependencies : { "express" : "3"}`: Major version 이 3인 모든 버전 수용
 - `dependencies : { "express" : "^3"}` : 위와 동일 (minor version 이하가 표기되어있지 않기 때문)
 - `dependencies : { "express" : "~3"}` : 위와 동일 (patch version 이 표기되어있지 않기 때문)
-
-
-
+---
 - `dependencies : { "express" : "3.9"}` : Major version 이 3, Minor version 이 9 인 모든 버전 수용
 - `dependencies : { "express" : "^3.9"}` : 3.9 부터 4.0 이전 까지의 버전 수용 (3.10.x 포함)
 - `dependencies : { "express" : "~3.9"}` : "3.9" 와 동일 (patch version 이 표기되어있지 않기 때문)
-
-
-
+---
 - `dependencies : { "express" : "3.9.2"}`: 3.9.2 버전만 수용
 - `dependencies : { "express" : "^3.9.2"}`: 3.9 부터 4.0 이전 까지의 버전 수용 (3.10.x 포함)
 - `dependencies : { "express" : "~3.9.2"}`: 3.9.2 부터 3.10.0 이전까지의 버전 수용
-
-
-
-- 정리하자면, patch version 에 대해 유연성을 갖는 `~` 을 사용하는 경우,  `~a.b.c` 는 해당 버전보다 상위 patch version 은 모두 수용, minor version 에 대해 유연성을 갖는 `^` 을 사용하는 경우, `^a.b.c` 는 해당 버전보다 상위 patch version 또는 minor version 까지 수용한다는 의미가 된다. 
+---
+정리하자면, patch version 에 대해 유연성을 갖는 `~` 을 사용하는 경우,  `~a.b.c` 는 해당 버전보다 상위 patch version 은 모두 수용, minor version 에 대해 유연성을 갖는 `^` 을 사용하는 경우, `^a.b.c` 는 해당 버전보다 상위 patch version 또는 minor version 까지 수용한다는 의미가 된다. 
 - [npm semver calculator](https://semver.npmjs.com/) 에서 직접 확인 가능!
 
 
